@@ -10,3 +10,5 @@ class Command:
 
     def __str__(self) -> str:
         return f"{self.timestamp}ms {self.type} {self.params} -> {self.piece_id}"
+
+

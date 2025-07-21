@@ -10,7 +10,6 @@ class Board:
     H_cells: int
     img: Img
 
-    # convenience, not required by dataclass
     def clone(self) -> "Board":
         """Clone the board with a copy of the image."""
         cloned_img = Img()
@@ -22,3 +21,8 @@ class Board:
             H_cells=self.H_cells,
             img=cloned_img
         )
+
+    def cell_to_pixel(self, cell: tuple[int, int]) -> tuple[int, int]:
+        row, col = cell
+        return col * self.cell_W_pix, row * self.cell_H_pix
+

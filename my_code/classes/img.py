@@ -266,3 +266,19 @@ class Img:
         cv2.imshow(win, self.img); cv2.waitKey(0); cv2.destroyAllWindows()
 
     def save(self, path): cv2.imwrite(str(path), self.img)
+
+    def copy(self):
+        return Img(self.img.copy())
+
+    def overlay(self, overlay_img, x, y, alpha=0.5):
+        if overlay_img.img.shape[2] == 4:  # RGBA
+            alpha_channel = overlay_img.img[:, :, 3] / 255.0 * alpha
+            for c in range(3):
+                self.img[y:y+overlay_img.img.shape[0], x:x+overlay_img.img.shape[1], c] = \
+                    (alpha_channel * overlay_img.img[:, :, c] +
+                    (1 - alpha_channel) * self.img[y:y+overlay_img.img.shape[0], x:x+overlay_img.img.shape[1], c])
+
+    def resize(self, size):
+        self.img = cv2.resize(self.img, size)
+        return self
+
