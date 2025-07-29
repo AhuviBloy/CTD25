@@ -1,10 +1,9 @@
 {
   "physics": {
-    "speed_m_per_sec": 1.5,
-    "next_state_when_finished": "long_rest"
+    "speed_m_per_sec": 3.0
   },
   "graphics": {
-    "frames_per_sec": 12,
+    "frames_per_sec": 18,
     "is_loop": true
   }
 }
