@@ -360,13 +360,13 @@ class Game:
         """Check if a pawn needs promotion based on its position"""
         # Check if it's a pawn
         if not piece.id.startswith('P'):
-            print(f"DEBUG: {piece.id} is not a pawn")
+            # print(f"DEBUG: {piece.id} is not a pawn")
             return False
             
         row, col = cell
         player_color = piece.id[1] if len(piece.id) >= 2 else 'W'
         
-        print(f"DEBUG: Checking promotion for {piece.id} at row {row}, player color {player_color}")
+        # print(f"DEBUG: Checking promotion for {piece.id} at row {row}, player color {player_color}")
         
         # White pawns promote at row 0 (top), Black pawns promote at row 7 (bottom)
         if player_color == 'W' and row == 0:
@@ -376,7 +376,7 @@ class Game:
             print(f"DEBUG: Black pawn promotion needed!")
             return True
         
-        print(f"DEBUG: No promotion needed")
+        # print(f"DEBUG: No promotion needed")
         return False
     
     def _handle_pawn_promotion(self, pawn_piece, cell: tuple):

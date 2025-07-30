@@ -135,7 +135,7 @@ class KeyboardProducer(threading.Thread):
             # first press = pick up the piece under the cursor
             piece = self._find_piece_at(cell)
             if not piece:
-                print(f"[WARN] No piece at {cell}")
+                # print(f"[WARN] No piece at {cell}")
                 return
 
             # Check if the piece belongs to this player's color
